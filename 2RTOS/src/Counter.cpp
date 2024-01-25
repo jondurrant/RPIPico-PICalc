@@ -46,6 +46,17 @@ void Counter::inc(uint8_t id){
 	xCoreCounts[get_core_num()]++;
 }
 
+void Counter::incCore(uint8_t id, uint8_t  core){
+	if (id < MAX_ID){
+		if (xStopTime == 0){
+			xCounts[id]++;
+		}
+	}
+	if (core < MAX_CORES){
+		xCoreCounts[core]++;
+	}
+}
+
 void Counter::report(){
 	 xStopTime =  to_ms_since_boot(get_absolute_time());
 
@@ -67,6 +78,6 @@ void Counter::report(){
 
 	 double perSec = (double)total /  ((double) sampleTime / 1000.0);
 
-	 printf("Total: %u \t%f keys per sec\n", total, perSec);
+	 printf("Total: %u \t%f per sec\n", total, perSec);
 
 }

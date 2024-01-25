@@ -33,7 +33,7 @@ void main_task(void* params){
   printf("Main task started\n");
 
   alarm_id_t alarm = add_alarm_in_ms(
-  			10 * 1000,
+  			60 * 1000,
   			alarmCB, NULL, false);
 
 	Counter::getInstance()->start();

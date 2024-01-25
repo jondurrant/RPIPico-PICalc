@@ -22,6 +22,7 @@ public:
 
 	void start();
 	void inc(uint8_t id=0);
+	void incCore(uint8_t id=0, uint8_t  core=0);
 	void report();
 
 protected:
